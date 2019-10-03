@@ -3,9 +3,9 @@ import (
 	"fmt"
 )
 
-func ejector_math_in (size string, material int) float32 {
+func straight_math_in (size string, material int) float32 {
 	var normal_num [12][2] float32			//普通材质
-	var skd61_num [12][2] float32			//国产SKD-61
+	var skd61_num [12][2] float32			//国产SKD61
 	var choose_num [][] float32				//材质选择
 	normal_num = {
 		{0.06, 0.09},
@@ -35,7 +35,7 @@ func ejector_math_in (size string, material int) float32 {
 		{0.38, 0.55},
 		{0.45, 0.65},
 	}
-	
+
 	var straight_format = "%f*%f*%f*%f"			//自身司筒格式
 	var money_in float32						//进货价
 
@@ -48,7 +48,7 @@ func ejector_math_in (size string, material int) float32 {
 
 	//从输入读取规格
 	fmt.Sscanf(size, straight_format, &inside_diameter, &outside_diameter, &length0, &length1)
-	
+
 	// 材质 -->  单价
 	if material == 0 {
 		// 材质为国产SKD-61

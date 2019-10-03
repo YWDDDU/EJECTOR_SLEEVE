@@ -14,9 +14,9 @@ func main() {
 	)
 
 	var (								//材质选择值
-		normail = 0,					//普通材质
-		skd61 = 1,						//国产SKD61
-		h13 = 3,						//进口SKD61
+		normail = 2,					//普通材质
+		skd61 = 0,						//国产SKD61
+		h13 = 1,						//进口SKD61
 	)
 
 	var ejector_size string				//司筒尺寸
@@ -24,12 +24,15 @@ func main() {
 		money_in float32				//进货价
 	)
 
-	molec = mole_choose()				//类型选择
-	material = material_choose()		//材质选择
+	for 1 {
+		molec = mole_choose()				//类型选择
+		if molec == 3 {break}
+		material = material_choose()		//材质选择
 
-	ejector_size = size_input(molec)	//返回尺寸
+		ejector_size = size_input(molec)	//返回尺寸
 
-	money_in = ejector_math_in(ejector_size, material)
-	fmt.Printf("\t%s\t\n\t进货价: %.2f\t\n", ejector_size, money_in)
+		money_in = ejector_math_in(ejector_size, material)
+		fmt.Printf("\t%s\t\n\t进货价: %.2f\t\n", ejector_size, money_in)
+	}
 
 }
